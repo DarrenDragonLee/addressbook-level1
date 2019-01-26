@@ -133,6 +133,13 @@ public class AddressBook {
     private static final String COMMAND_EXIT_DESC = "Exits the program.";
     private static final String COMMAND_EXIT_EXAMPLE = COMMAND_EXIT_WORD;
 
+    // Darren Dragon Lee: add new command word
+    private static final String COMMAND_EDIT_PHONE_WORD = "edit phone";
+    private static final String COMMAND_EDIT_PHONE_DESC = "Edits a person's phone number in the address book "
+                                                        + "identified by the index number used in the last find/list call.";
+    private static final String COMMAND_EDIT_PHONE_PARAMETER = "INDEX PHONE_NUMBER";
+    private static final String COMMAND_EDIT_PHONE_EXAMPLE = COMMAND_EDIT_PHONE_WORD + " 1" + " 91230123";
+
     private static final String DIVIDER = "===================================================";
 
 
