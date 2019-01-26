@@ -134,7 +134,7 @@ public class AddressBook {
     private static final String COMMAND_EXIT_EXAMPLE = COMMAND_EXIT_WORD;
 
     // Darren Dragon Lee: add new command word
-    private static final String COMMAND_EDIT_PHONE_WORD = "edit phone";
+    private static final String COMMAND_EDIT_PHONE_WORD = "edit_phone";
     private static final String COMMAND_EDIT_PHONE_DESC = "Edits a person's phone number in the address book "
                                                         + "identified by the index number used in the last find/list call.";
     private static final String COMMAND_EDIT_PHONE_PARAMETER = "INDEX PHONE_NUMBER";
@@ -1093,6 +1093,7 @@ public class AddressBook {
                 + getUsageInfoForFindCommand() + LS
                 + getUsageInfoForViewCommand() + LS
                 + getUsageInfoForDeleteCommand() + LS
+                + getUsageInfoForEditPhoneCommand() + LS
                 + getUsageInfoForClearCommand() + LS
                 + getUsageInfoForExitCommand() + LS
                 + getUsageInfoForHelpCommand();
@@ -1143,6 +1144,12 @@ public class AddressBook {
                 + String.format(MESSAGE_COMMAND_HELP_EXAMPLE, COMMAND_EXIT_EXAMPLE);
     }
 
+    /** Returns the string for showing 'edit phone' command usage instruction */
+    private static String getUsageInfoForEditPhoneCommand() {
+        return String.format(MESSAGE_COMMAND_HELP, COMMAND_EDIT_PHONE_WORD, COMMAND_EDIT_PHONE_DESC) + LS
+                + String.format(MESSAGE_COMMAND_HELP_PARAMETERS, COMMAND_EDIT_PHONE_PARAMETER) + LS
+                + String.format(MESSAGE_COMMAND_HELP_EXAMPLE, COMMAND_EDIT_PHONE_EXAMPLE) + LS;
+    }
 
     /*
      * ============================

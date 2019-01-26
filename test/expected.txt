@@ -66,6 +66,10 @@
 || 	Parameters: INDEX
 || 	Example: delete 1
 || 
+|| edit_phone: Edits a person's phone number in the address book identified by the index number used in the last find/list call.
+|| 	Parameters: INDEX PHONE_NUMBER
+|| 	Example: edit_phone 1 91230123
+|| 
 || clear: Clears address book permanently.
 || 	Example: clear
 || 
