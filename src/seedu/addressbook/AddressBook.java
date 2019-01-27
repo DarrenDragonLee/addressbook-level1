@@ -384,6 +384,8 @@ public class AddressBook {
             return executeListAllPersonsInAddressBook();
         case COMMAND_DELETE_WORD:
             return executeDeletePerson(commandArgs);
+        case COMMAND_EDIT_PHONE_WORD:
+            return executeEditPhone(commandArgs);
         case COMMAND_CLEAR_WORD:
             return executeClearAddressBook();
         case COMMAND_HELP_WORD:
@@ -519,6 +521,7 @@ public class AddressBook {
                                                           : MESSAGE_PERSON_NOT_IN_ADDRESSBOOK; // not found
     }
 
+
     /**
      * Checks validity of delete person argument string's format.
      *
@@ -528,6 +531,49 @@ public class AddressBook {
     private static boolean isDeletePersonArgsValid(String rawArgs) {
         try {
             final int extractedIndex = Integer.parseInt(rawArgs.trim()); // use standard libraries to parse
+            return extractedIndex >= DISPLAYED_INDEX_OFFSET;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+    
+    /**
+     * Edits the phone number of a person identified using last displayed index.
+     *
+     * @param commandArgs full command args string from the user
+     * @return feedback display message for the operation result
+     */
+    private static String executeEditPhone(String commandArgs) {
+        String[] splitUserArgs = commandArgs.split("\\s+");
+
+        // check if there are the correct number of arguments in the entered command
+        if (splitUserArgs.length < 2) {
+            return getMessageForInvalidCommandInput(COMMAND_EDIT_PHONE_WORD, getUsageInfoForEditPhoneCommand());
+        }
+        
+        // checks if the index entered is a number
+        if (!isEditPhoneArgsValid(splitUserArgs[0])) {
+            return getMessageForInvalidCommandInput(COMMAND_EDIT_PHONE_WORD, getUsageInfoForEditPhoneCommand());
+        }
+
+        // checks if the index entered exists
+        final int targetVisibleIndex = Integer.parseInt(splitUserArgs[0].trim());
+        if (!isDisplayIndexValidForLastPersonListingView(targetVisibleIndex)) {
+            return MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
+        }
+        
+        return "continue function";
+    }
+
+    /**
+     * Checks validity of edit phone number argument string's format.
+     *
+     * @param rawIndex command args index of phone number to be edited
+     * @return whether the input args string is valid
+     */
+    private static boolean isEditPhoneArgsValid(String rawIndex) {
+        try {
+            final int extractedIndex = Integer.parseInt(rawIndex.trim()); // use standard libraries to parse
             return extractedIndex >= DISPLAYED_INDEX_OFFSET;
         } catch (NumberFormatException nfe) {
             return false;
@@ -1144,7 +1190,7 @@ public class AddressBook {
                 + String.format(MESSAGE_COMMAND_HELP_EXAMPLE, COMMAND_EXIT_EXAMPLE);
     }
 
-    /** Returns the string for showing 'edit phone' command usage instruction */
+    /** Darren Dragon Lee: Returns the string for showing 'edit phone' command usage instruction */
     private static String getUsageInfoForEditPhoneCommand() {
         return String.format(MESSAGE_COMMAND_HELP, COMMAND_EDIT_PHONE_WORD, COMMAND_EDIT_PHONE_DESC) + LS
                 + String.format(MESSAGE_COMMAND_HELP_PARAMETERS, COMMAND_EDIT_PHONE_PARAMETER) + LS
