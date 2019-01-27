@@ -71,6 +71,7 @@ public class AddressBook {
     private static final String MESSAGE_COMMAND_HELP_PARAMETERS = "\tParameters: %1$s";
     private static final String MESSAGE_COMMAND_HELP_EXAMPLE = "\tExample: %1$s";
     private static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";
+    private static final String MESSAGE_EDIT_PHONE_SUCCESS = "Phone Number Changed: %1$s";
     private static final String MESSAGE_DISPLAY_PERSON_DATA = "%1$s  Phone Number: %2$s  Email: %3$s";
     private static final String MESSAGE_DISPLAY_LIST_ELEMENT_INDEX = "%1$d. ";
     private static final String MESSAGE_GOODBYE = "Exiting Address Book... Good bye!";
@@ -547,7 +548,7 @@ public class AddressBook {
         String[] splitUserArgs = commandArgs.split("\\s+");
 
         // check if there are the correct number of arguments in the entered command
-        if (splitUserArgs.length < 2) {
+        if (splitUserArgs.length != 2) {
             return getMessageForInvalidCommandInput(COMMAND_EDIT_PHONE_WORD, getUsageInfoForEditPhoneCommand());
         }
         
@@ -556,13 +557,26 @@ public class AddressBook {
             return getMessageForInvalidCommandInput(COMMAND_EDIT_PHONE_WORD, getUsageInfoForEditPhoneCommand());
         }
 
+        // checks if the phone number entered is valid
+        final String phoneNumberToChange = splitUserArgs[1].trim();
+        if (!phoneNumberToChange.matches("[0-9]+")) {
+            return getMessageForInvalidCommandInput(COMMAND_EDIT_PHONE_WORD, getUsageInfoForEditPhoneCommand());
+        }
+        
         // checks if the index entered exists
         final int targetVisibleIndex = Integer.parseInt(splitUserArgs[0].trim());
         if (!isDisplayIndexValidForLastPersonListingView(targetVisibleIndex)) {
             return MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
         }
         
-        return "continue function";
+        // gets the person specified by the index in the list
+        final String[] targetInModel = getPersonByLastVisibleIndex(targetVisibleIndex);
+        final int targetIndex = ALL_PERSONS.indexOf(targetInModel);
+
+        ALL_PERSONS.get(targetIndex)[1] = phoneNumberToChange;
+        savePersonsToFile(getAllPersonsInAddressBook(), storageFilePath);
+
+        return String.format(MESSAGE_EDIT_PHONE_SUCCESS, getMessageForFormattedPersonData(ALL_PERSONS.get(targetIndex)));
     }
 
     /**
