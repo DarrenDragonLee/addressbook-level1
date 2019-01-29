@@ -62,10 +62,32 @@
   find Charlie Betsy
 
 ##########################################################
+# test edit phone number command
+##########################################################
+# last active view: [1] betsy [2] charlie
+
+  # should catch invalid args format
+  edit_phone
+  edit_phone should have 2 numbers
+  edit_phone 1 number
+  edit_phone number 1
+
+  # should catch invalid index
+  edit_phone -1 91230123
+  edit_phone 0 91230123
+  edit_phone 3 91230123
+
+  # should edit person's phone number
+  list
+  edit_phone 1 91110111
+  list
+
+##########################################################
 # test delete person command
 ##########################################################
 
 # last active view: [1] betsy [2] charlie
+find Charlie Betsy
 
   # should catch invalid args format
   delete

@@ -208,6 +208,78 @@
 || 
 || 2 persons found!
 || ===================================================
+|| Enter command: || [Command entered:  edit_phone]
+|| Invalid command format: edit_phone 
+|| edit_phone: Edits a person's phone number in the address book identified by the index number used in the last find/list call.
+|| 	Parameters: INDEX PHONE_NUMBER
+|| 	Example: edit_phone 1 91230123
+|| 
+|| ===================================================
+|| Enter command: || [Command entered:  edit_phone should have 2 numbers]
+|| Invalid command format: edit_phone 
+|| edit_phone: Edits a person's phone number in the address book identified by the index number used in the last find/list call.
+|| 	Parameters: INDEX PHONE_NUMBER
+|| 	Example: edit_phone 1 91230123
+|| 
+|| ===================================================
+|| Enter command: || [Command entered:  edit_phone 1 number]
+|| Invalid command format: edit_phone 
+|| edit_phone: Edits a person's phone number in the address book identified by the index number used in the last find/list call.
+|| 	Parameters: INDEX PHONE_NUMBER
+|| 	Example: edit_phone 1 91230123
+|| 
+|| ===================================================
+|| Enter command: || [Command entered:  edit_phone number 1]
+|| Invalid command format: edit_phone 
+|| edit_phone: Edits a person's phone number in the address book identified by the index number used in the last find/list call.
+|| 	Parameters: INDEX PHONE_NUMBER
+|| 	Example: edit_phone 1 91230123
+|| 
+|| ===================================================
+|| Enter command: || [Command entered:  edit_phone -1 91230123]
+|| Invalid command format: edit_phone 
+|| edit_phone: Edits a person's phone number in the address book identified by the index number used in the last find/list call.
+|| 	Parameters: INDEX PHONE_NUMBER
+|| 	Example: edit_phone 1 91230123
+|| 
+|| ===================================================
+|| Enter command: || [Command entered:  edit_phone 0 91230123]
+|| Invalid command format: edit_phone 
+|| edit_phone: Edits a person's phone number in the address book identified by the index number used in the last find/list call.
+|| 	Parameters: INDEX PHONE_NUMBER
+|| 	Example: edit_phone 1 91230123
+|| 
+|| ===================================================
+|| Enter command: || [Command entered:  edit_phone 3 91230123]
+|| The person index provided is invalid
+|| ===================================================
+|| Enter command: || [Command entered:  list]
+|| 	1. Adam Brown  Phone Number: 111111  Email: adam@gmail.com
+|| 	2. Betsy Choo  Phone Number: 222222  Email: benchoo@nus.edu.sg
+|| 	3. Charlie Dickson  Phone Number: 333333  Email: charlie.d@nus.edu.sg
+|| 	4. Dickson Ee  Phone Number: 444444  Email: dickson@nus.edu.sg
+|| 	5. Esther Potato  Phone Number: 555555  Email: esther@notreal.potato
+|| 
+|| 5 persons found!
+|| ===================================================
+|| Enter command: || [Command entered:  edit_phone 1 91110111]
+|| Phone Number Changed: Adam Brown  Phone Number: 91110111  Email: adam@gmail.com
+|| ===================================================
+|| Enter command: || [Command entered:  list]
+|| 	1. Adam Brown  Phone Number: 91110111  Email: adam@gmail.com
+|| 	2. Betsy Choo  Phone Number: 222222  Email: benchoo@nus.edu.sg
+|| 	3. Charlie Dickson  Phone Number: 333333  Email: charlie.d@nus.edu.sg
+|| 	4. Dickson Ee  Phone Number: 444444  Email: dickson@nus.edu.sg
+|| 	5. Esther Potato  Phone Number: 555555  Email: esther@notreal.potato
+|| 
+|| 5 persons found!
+|| ===================================================
+|| Enter command: || [Command entered:find Charlie Betsy]
+|| 	1. Betsy Choo  Phone Number: 222222  Email: benchoo@nus.edu.sg
+|| 	2. Charlie Dickson  Phone Number: 333333  Email: charlie.d@nus.edu.sg
+|| 
+|| 2 persons found!
+|| ===================================================
 || Enter command: || [Command entered:  delete]
 || Invalid command format: delete 
 || delete: Deletes a person identified by the index number used in the last find/list call.
@@ -246,7 +318,7 @@
 || Person could not be found in address book
 || ===================================================
 || Enter command: || [Command entered:  list]
-|| 	1. Adam Brown  Phone Number: 111111  Email: adam@gmail.com
+|| 	1. Adam Brown  Phone Number: 91110111  Email: adam@gmail.com
 || 	2. Betsy Choo  Phone Number: 222222  Email: benchoo@nus.edu.sg
 || 	3. Dickson Ee  Phone Number: 444444  Email: dickson@nus.edu.sg
 || 	4. Esther Potato  Phone Number: 555555  Email: esther@notreal.potato
@@ -257,14 +329,14 @@
 || Deleted Person: Esther Potato  Phone Number: 555555  Email: esther@notreal.potato
 || ===================================================
 || Enter command: || [Command entered:  list]
-|| 	1. Adam Brown  Phone Number: 111111  Email: adam@gmail.com
+|| 	1. Adam Brown  Phone Number: 91110111  Email: adam@gmail.com
 || 	2. Betsy Choo  Phone Number: 222222  Email: benchoo@nus.edu.sg
 || 	3. Dickson Ee  Phone Number: 444444  Email: dickson@nus.edu.sg
 || 
 || 3 persons found!
 || ===================================================
 || Enter command: || [Command entered:  delete 1]
-|| Deleted Person: Adam Brown  Phone Number: 111111  Email: adam@gmail.com
+|| Deleted Person: Adam Brown  Phone Number: 91110111  Email: adam@gmail.com
 || ===================================================
 || Enter command: || [Command entered:  list]
 || 	1. Betsy Choo  Phone Number: 222222  Email: benchoo@nus.edu.sg
